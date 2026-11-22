@@ -48,26 +48,54 @@ Most web apps are built on high-end developer laptops and freeze on a 4 GB schoo
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (PC / Laptop & Mobile)
+
+### 💻 1. PC / Laptop Quick Start (Mac, Windows, Linux & Chromebook)
 
 ```bash
-# Diagnose your current machine's live RAM/CPU & recommended budgets:
+# 1. Clone Feather Speed (0 npm dependencies)
+git clone https://github.com/kelli-dotcom/feather-speed.git && cd feather-speed
+
+# 2. Diagnose your current machine's live RAM/CPU & recommended budgets:
 node bin/feather-perf.mjs diagnose
+
+# 3. Or open preview/index.html in any browser to test the interactive hardware simulator!
 ```
 
-### Frontend (Browser / React / Next.js)
+#### Frontend (Browser / React / Next.js)
 ```js
 import { detectFrontendProfile } from "./src/frontend.mjs";
 const { tier, budgets } = detectFrontendProfile();
 // budgets -> { pageSize, enableAnimations, enableBackdropBlur, prefetchLinks, imageQuality }
 ```
 
-### Backend (Node.js / Bun / Workers)
+#### Backend (Node.js / Bun / Workers)
 ```js
 import { detectBackendProfile } from "./src/backend.mjs";
 const { tier, budgets } = detectBackendProfile();
 // budgets -> { maxConcurrency, dbPoolMax, batchSize, fetchTimeoutMs }
 ```
+
+### 📱 2. Mobile Quick Start (iPhone, iPad & Android)
+
+<details>
+<summary><strong>📱 Download &amp; Use on Mobile (iOS / Android)</strong></summary>
+
+<br />
+
+1. **1-Tap Direct Download:**  
+   👉 **[Download ZIP (Mobile-Friendly)](https://github.com/kelli-dotcom/feather-speed/archive/refs/heads/main.zip)**
+
+2. **Quick Unzip Steps:**
+   - **iPhone / iPad (iOS):** Open **Files** → **Downloads** → tap `feather-speed-main.zip` once to unzip.
+   - **Android:** Open **Files by Google** (or **My Files**) → **Downloads** → tap `feather-speed-main.zip` → tap **Extract**.
+   - **Mobile Browser Tip:** Tap the browser menu (`AA` or `⋮`) → **Request Desktop Website** to reveal GitHub's green **Code → Download ZIP** button anytime.
+
+3. **Run & Use Immediately on Mobile:**
+   - **Live Mobile Hardware Detector:** Tap `preview/index.html` inside the unzipped folder on your phone to test your mobile browser's live RAM, CPU core, and network budgets (`ECO` / `BALANCED` / `ULTRA`).
+   - **Attach in Gemini / Claude / ChatGPT Mobile Apps:** Attach `skills/adaptive-lightweight-apps/SKILL.md` and `design-spec/ADAPTIVE_PERF_SPEC.md` in any AI chat (or save once to a **Gemini Gem / Claude Project**) so every app you build automatically adapts to low-RAM devices.
+
+</details>
 
 ---
 
