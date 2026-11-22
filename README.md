@@ -34,7 +34,7 @@ Most web apps are built on high-end developer laptops and freeze on a 4 GB schoo
 - **Built For:** Solo founders, full-stack engineers, school/community software builders, and AI coding agents shipping lightweight web & mobile apps.
 - **Best Used For:** Data-heavy dashboards, job boards, scrapers/sync pipelines, and public web apps serving users across mixed hardware and bandwidth.
 - **Runs Everywhere:** Browser (`navigator.deviceMemory`, `hardwareConcurrency`, `connection`, `prefers-reduced-motion`) + Node.js / Bun backends (`node:os` RAM & CPU cores).
-- **Proven in Production:** Auto-tunes live ATS link-audit concurrency in **[Openflex](https://github.com/kelli-dotcom/openflex)**.
+- **Proven in Production:** Auto-tunes live ATS link-audit concurrency in **Openflex** *(CRTA Proprietary Platform)*.
 
 ---
 
@@ -119,7 +119,7 @@ Read the full guide in **[`CONTRIBUTING.md`](CONTRIBUTING.md)** · **[Open an Is
 
 | Repository | What It Does |
 | :--- | :--- |
-| **[openflex](https://github.com/kelli-dotcom/openflex)** | Zero-cost, anti-ghost, Remote-Truth job board (61 verified ATS feeds) |
+| **Openflex** *(CRTA Proprietary Platform)* | Zero-cost, anti-ghost, Remote-Truth job board (61 verified ATS feeds) |
 | **[feather-speed](https://github.com/kelli-dotcom/feather-speed)** | Hardware-aware adaptive frontend & backend speed kit *(this repo)* |
 | **[stack-blueprints](https://github.com/kelli-dotcom/stack-blueprints)** | 5-tier developer stack matrix & workflow file-creation order CLI + AI skill |
 | **[feather-themes](https://github.com/kelli-dotcom/feather-themes)** | 1,092 photobiology-calibrated, 0-dep WCAG AA/AAA themes |
