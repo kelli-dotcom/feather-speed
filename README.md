@@ -1,4 +1,4 @@
-<h1 align="center">Feather Perf</h1>
+<h1 align="center">Feather Speed</h1>
 
 <p align="center">
   <strong>Zero-dependency, hardware-aware adaptive performance engine, spec &amp; AI agent skill for lightweight frontend and backend apps.</strong><br />
@@ -10,7 +10,7 @@
   <a href="#-how-adaptive-tiers-work"><strong>Adaptive Tiers</strong></a> ·
   <a href="design-spec/ADAPTIVE_PERF_SPEC.md"><strong>Spec</strong></a> ·
   <a href="skills/adaptive-lightweight-apps/SKILL.md"><strong>AI Skill</strong></a> ·
-  <a href="https://github.com/kelli-dotcom/feather-perf/issues"><strong>Issues</strong></a>
+  <a href="https://github.com/kelli-dotcom/feather-speed/issues"><strong>Issues</strong></a>
 </p>
 
 <p align="center">
@@ -22,14 +22,14 @@
 </p>
 
 <p align="center">
-  <img src="demo/preview.svg" alt="Feather Perf Hardware-Aware Adaptive Engine Demo" width="90%" />
+  <img src="demo/preview.svg" alt="Feather Speed Hardware-Aware Adaptive Engine Demo" width="90%" />
 </p>
 
 ---
 
 ## ✨ Built for Real-World Computers (Not Just \$4,000 Dev Machines)
 
-Most web apps are built on high-end developer laptops and freeze on a 4 GB school Chromebook, older phone, or \$5 VPS. **Feather Perf** reads the real RAM, CPU cores, and network conditions of the machine running your code—so your app runs fast, accurate, and crash-free everywhere.
+Most web apps are built on high-end developer laptops and freeze on a 4 GB school Chromebook, older phone, or \$5 VPS. **Feather Speed** reads the real RAM, CPU cores, and network conditions of the machine running your code—so your app runs fast, accurate, and crash-free everywhere.
 
 - **Built For:** Solo founders, full-stack engineers, school/community software builders, and AI coding agents shipping lightweight web & mobile apps.
 - **Best Used For:** Data-heavy dashboards, job boards, scrapers/sync pipelines, and public web apps serving users across mixed hardware and bandwidth.
@@ -76,7 +76,8 @@ const { tier, budgets } = detectBackendProfile();
 | Repository | What It Does |
 | :--- | :--- |
 | **[openflex](https://github.com/kelli-dotcom/openflex)** | Zero-cost, anti-ghost, Remote-Truth job board (61 verified ATS feeds) |
-| **[feather-perf](https://github.com/kelli-dotcom/feather-perf)** | Hardware-aware adaptive frontend & backend performance kit *(this repo)* |
+| **[feather-speed](https://github.com/kelli-dotcom/feather-speed)** | Hardware-aware adaptive frontend & backend speed kit *(this repo)* |
+| **[stack-blueprints](https://github.com/kelli-dotcom/stack-blueprints)** | 5-tier developer stack matrix & workflow file-creation order CLI + AI skill |
 | **[feather-themes](https://github.com/kelli-dotcom/feather-themes)** | 1,092 photobiology-calibrated, 0-dep WCAG AA/AAA themes |
 | **[agent-etiquette](https://github.com/kelli-dotcom/agent-etiquette)** | Multi-agent workflow rules, JSON handoff schemas & Rule of 2 loop caps |
 | **[archetype-agent-vault](https://github.com/kelli-dotcom/archetype-agent-vault)** | 7 character-driven AI coding agent suites (27 specialists) |

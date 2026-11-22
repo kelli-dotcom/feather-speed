@@ -1,6 +1,6 @@
-# Feather Perf
+# Feather Speed
 
-> Zero-dependency hardware-aware adaptive performance engine, spec, and AI agent skill that auto-tunes frontend & backend workloads to each device's live RAM, CPU cores, and network conditions.
+> Zero-dependency hardware-aware adaptive speed & performance engine, spec, and AI agent skill that auto-tunes frontend & backend workloads to each device's live RAM, CPU cores, and network conditions.
 
 ## Agent Entry Points (All Models)
 - `AGENTS.md` — Project guardrails and model-agnostic rules.
