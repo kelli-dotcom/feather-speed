@@ -71,6 +71,22 @@ const { tier, budgets } = detectBackendProfile();
 
 ---
 
+## 🤝 Contributing
+
+We welcome new hardware/network heuristics, zero-dependency framework adapters, and low-RAM device presets from both **human engineers** and **AI coding agents**:
+
+```bash
+# 1. Fork & create a feature branch
+git checkout -b feat/your-adaptive-improvement
+
+# 2. Run the hardware profile diagnostics gate (must exit 0)
+node bin/feather-perf.mjs diagnose
+```
+
+Read the full guide in **[`CONTRIBUTING.md`](CONTRIBUTING.md)** · **[Open an Issue](https://github.com/kelli-dotcom/feather-speed/issues)** · **[Submit a Pull Request](https://github.com/kelli-dotcom/feather-speed/pulls)**
+
+---
+
 ## 🌐 CRTA Tech Solutions Open-Source Ecosystem
 
 | Repository | What It Does |

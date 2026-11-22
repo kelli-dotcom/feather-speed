@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feather Speed — Live Hardware-Aware Adaptive Engine Demo</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: #111827;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --emerald: #10b981;
+      --cyan: #0ea5e9;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-eco { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid var(--amber); }
+    .badge-balanced { background: rgba(14, 165, 233, 0.15); color: var(--cyan); border: 1px solid var(--cyan); }
+    .badge-ultra { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
+    .grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+    }
+    .panel h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 14px; }
+    .control { margin-bottom: 14px; }
+    .control label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .control input[type="range"], .control select {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .preset-row { display: flex; gap: 8px; margin-bottom: 16px; }
+    .btn {
+      flex: 1;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn.active, .btn:hover { border-color: var(--emerald); color: var(--emerald); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .metric-card h3 { font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .kv { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; }
+    .kv span:last-child { font-family: ui-monospace, SFMono-Regular, monospace; font-weight: 700; color: var(--emerald); }
+    .code-box {
+      background: #070b14;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 12px;
+      color: #a7f3d0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 style="font-size: 22px; font-weight: 800;">Feather Speed · Live Hardware-Aware Engine</h1>
+        <p style="font-size: 13px; color: var(--muted);">Zero-dependency frontend &amp; backend auto-tuner for RAM, CPU cores, and network speed</p>
+      </div>
+      <div id="tierBadge" class="badge badge-balanced">TIER: BALANCED</div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>1. Hardware Preset or Live Device</h2>
+        <div class="preset-row">
+          <button class="btn" id="presetEco" onclick="applyPreset(2, 2, '3g', true)">2GB Chromebook</button>
+          <button class="btn active" id="presetBalanced" onclick="applyPreset(8, 4, '4g', false)">8GB Laptop</button>
+          <button class="btn" id="presetUltra" onclick="applyPreset(32, 12, '4g', false)">32GB Workstation</button>
+        </div>
+
+        <div class="control">
+          <label><span>Device RAM</span><span id="ramLabel">8 GB</span></label>
+          <input type="range" id="ramInput" min="1" max="32" step="1" value="8" oninput="updateEngine()" />
+        </div>
+        <div class="control">
+          <label><span>CPU Logical Cores</span><span id="cpuLabel">4 Cores</span></label>
+          <input type="range" id="cpuInput" min="1" max="16" step="1" value="4" oninput="updateEngine()" />
+        </div>
+        <div class="control">
+          <label><span>Effective Network</span><span id="netLabel">4g</span></label>
+          <select id="netInput" onchange="updateEngine()">
+            <option value="4g" selected>4G / Fast Broadband</option>
+            <option value="3g">3G / Congested Wi-Fi</option>
+            <option value="2g">2G / Offline-First Edge</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>
+            <span>Data Saver / Reduced Motion</span>
+            <input type="checkbox" id="saveDataInput" onchange="updateEngine()" />
+          </label>
+        </div>
+        <button class="btn" style="width:100%; margin-top:6px;" onclick="detectRealHardware()">Detect My Real Browser Hardware</button>
+      </div>
+
+      <div class="panel">
+        <h2>2. Auto-Tuned Runtime Budgets (Frontend + Backend)</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <h3>Frontend UI &amp; DOM Budgets</h3>
+            <div class="kv"><span>Max DOM List Size</span><span id="fePageSize">50 items</span></div>
+            <div class="kv"><span>CSS Backdrop Blur</span><span id="feBlur">OFF (GPU Safe)</span></div>
+            <div class="kv"><span>Motion &amp; Transitions</span><span id="feAnim">GPU-Only</span></div>
+            <div class="kv"><span>Link Prefetching</span><span id="fePrefetch">Hover Only</span></div>
+            <div class="kv"><span>Image Compression</span><span id="feImg">medium (80%)</span></div>
+          </div>
+          <div class="metric-card">
+            <h3>Backend Server &amp; DB Budgets</h3>
+            <div class="kv"><span>Scraper / Worker Concurrency</span><span id="beWorkers">12 workers</span></div>
+            <div class="kv"><span>Postgres DB Pool Max</span><span id="beDbPool">10 conns</span></div>
+            <div class="kv"><span>Ingestion Batch Size</span><span id="beBatch">75 rows</span></div>
+            <div class="kv"><span>HTTP Fetch Timeout</span><span id="beTimeout">6000 ms</span></div>
+            <div class="kv"><span>Memory Guardrail</span><span id="beMem">Active</span></div>
+          </div>
+        </div>
+        <h2>3. Live JSON Telemetry Contract</h2>
+        <div id="jsonOutput" class="code-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function computeProfile(ram, cores, net, saveData) {
+      let tier = "balanced";
+      if (saveData || ram <= 2 || cores <= 2 || net === "2g" || net === "3g") {
+        tier = "eco";
+      } else if (ram >= 16 && cores >= 8 && net === "4g") {
+        tier = "ultra";
+      }
+      const frontend = tier === "eco"
+        ? { pageSize: 20, enableBackdropBlur: false, enableAnimations: false, prefetchLinks: false, imageQuality: "low" }
+        : tier === "ultra"
+        ? { pageSize: 100, enableBackdropBlur: true, enableAnimations: true, prefetchLinks: true, imageQuality: "high" }
+        : { pageSize: 50, enableBackdropBlur: false, enableAnimations: true, prefetchLinks: true, imageQuality: "medium" };
+
+      const backend = tier === "eco"
+        ? { maxConcurrency: Math.min(4, Math.max(2, cores)), dbPoolMax: 4, batchSize: 25, fetchTimeoutMs: 4500 }
+        : tier === "ultra"
+        ? { maxConcurrency: Math.min(32, cores * 2), dbPoolMax: 20, batchSize: 200, fetchTimeoutMs: 8000 }
+        : { maxConcurrency: Math.min(16, cores * 3), dbPoolMax: 10, batchSize: 75, fetchTimeoutMs: 6000 };
+
+      return { tier, hardware: { ramGb: ram, cpuCores: cores, network: net, saveData }, frontend, backend };
+    }
+
+    function applyPreset(ram, cores, net, saveData) {
+      document.getElementById("ramInput").value = ram;
+      document.getElementById("cpuInput").value = cores;
+      document.getElementById("netInput").value = net;
+      document.getElementById("saveDataInput").checked = saveData;
+      document.querySelectorAll(".preset-row .btn").forEach(b => b.classList.remove("active"));
+      if (ram <= 2) document.getElementById("presetEco").classList.add("active");
+      else if (ram >= 16) document.getElementById("presetUltra").classList.add("active");
+      else document.getElementById("presetBalanced").classList.add("active");
+      updateEngine();
+    }
+
+    function detectRealHardware() {
+      const ram = navigator.deviceMemory || 8;
+      const cores = navigator.hardwareConcurrency || 4;
+      const conn = navigator.connection || {};
+      const net = conn.effectiveType || "4g";
+      const saveData = Boolean(conn.saveData);
+      applyPreset(ram, cores, net, saveData);
+    }
+
+    function updateEngine() {
+      const ram = Number(document.getElementById("ramInput").value);
+      const cores = Number(document.getElementById("cpuInput").value);
+      const net = document.getElementById("netInput").value;
+      const saveData = document.getElementById("saveDataInput").checked;
+
+      document.getElementById("ramLabel").textContent = ram + " GB";
+      document.getElementById("cpuLabel").textContent = cores + " Cores";
+      document.getElementById("netLabel").textContent = net;
+
+      const profile = computeProfile(ram, cores, net, saveData);
+      const badge = document.getElementById("tierBadge");
+      badge.textContent = "TIER: " + profile.tier.toUpperCase();
+      badge.className = "badge badge-" + profile.tier;
+
+      document.getElementById("fePageSize").textContent = profile.frontend.pageSize + " items";
+      document.getElementById("feBlur").textContent = profile.frontend.enableBackdropBlur ? "ON (Full Glass)" : "OFF (0 Lag)";
+      document.getElementById("feAnim").textContent = profile.frontend.enableAnimations ? "GPU-Accelerated" : "Disabled (Instant)";
+      document.getElementById("fePrefetch").textContent = profile.frontend.prefetchLinks ? "Active" : "Disabled (Saves RAM)";
+      document.getElementById("feImg").textContent = profile.frontend.imageQuality;
+
+      document.getElementById("beWorkers").textContent = profile.backend.maxConcurrency + " workers";
+      document.getElementById("beDbPool").textContent = profile.backend.dbPoolMax + " conns";
+      document.getElementById("beBatch").textContent = profile.backend.batchSize + " rows";
+      document.getElementById("beTimeout").textContent = profile.backend.fetchTimeoutMs + " ms";
+
+      document.getElementById("jsonOutput").textContent = JSON.stringify(profile, null, 2);
+    }
+
+    updateEngine();
+  </script>
+</body>
+</html>
