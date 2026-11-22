@@ -1,0 +1,19 @@
+# Feather Perf
+
+> Zero-dependency hardware-aware adaptive performance engine, spec, and AI agent skill that auto-tunes frontend & backend workloads to each device's live RAM, CPU cores, and network conditions.
+
+## Agent Entry Points (All Models)
+- `AGENTS.md` — Project guardrails and model-agnostic rules.
+- `HANDOFF.md` — Active state, verification command, and next step.
+- `mistakes.md` — Permanent "Never Repeat" guardrail log.
+- `design-spec/ADAPTIVE_PERF_SPEC.md` — Hardware tiers (`ULTRA`, `BALANCED`, `ECO`) and runtime adaptation contract.
+- `skills/adaptive-lightweight-apps/SKILL.md` — Reusable AI agent skill for adaptive lightweight apps.
+
+## Key Paths
+- `src/frontend.mjs` — Browser RAM/CPU/network/Save-Data auto-tuner.
+- `src/backend.mjs` — Node/Bun `os.freemem()` + `os.cpus()` adaptive concurrency & batch sizer.
+- `bin/feather-perf.mjs` — Zero-dependency CLI (`diagnose`).
+- `demo/preview.svg` — Visual adaptive tier preview.
+
+## Verification Command
+`node bin/feather-perf.mjs diagnose`
