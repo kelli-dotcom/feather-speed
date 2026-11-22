@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360">
+  <rect width="900" height="360" rx="10" fill="#09090b"/>
+  <rect width="900" height="40" rx="10" fill="#18181b"/>
+  <circle cx="22" cy="20" r="6" fill="#f43f5e"/><circle cx="42" cy="20" r="6" fill="#f59e0b"/><circle cx="62" cy="20" r="6" fill="#10b981"/>
+  <text x="450" y="25" text-anchor="middle" fill="#a1a1aa" font-family="Menlo, monospace" font-size="13">feather-perf — Hardware-Aware Adaptive Engine (Frontend + Backend)</text>
+  <text x="32" y="84" fill="#7dcfff" font-family="Menlo, monospace" font-size="15">$ node bin/feather-perf.mjs diagnose</text>
+  <text x="32" y="114" fill="#10b981" font-family="Menlo, monospace" font-size="14">[FEATHER PERF] Tier: BALANCED | Auto-tuned to host RAM &amp; CPU cores</text>
+  <text x="32" y="142" fill="#e4e4e7" font-family="Menlo, monospace" font-size="14">  Backend:  maxConcurrency=16 | dbPoolMax=10 | batchSize=75 | timeout=5500ms</text>
+  <text x="32" y="170" fill="#e4e4e7" font-family="Menlo, monospace" font-size="14">  Frontend: ECO (&lt;=2GB/3G) -&gt; 20 rows, 0 blur | ULTRA (&gt;=8GB) -&gt; 100 rows, full FX</text>
+  <rect x="32" y="200" width="260" height="110" rx="6" fill="#18181b" stroke="#f59e0b"/>
+  <text x="48" y="230" fill="#f59e0b" font-family="Menlo, monospace" font-weight="700" font-size="14">ECO TIER (&lt;=2GB / 3G)</text>
+  <text x="48" y="258" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">20 items · No blur/anim</text>
+  <text x="48" y="282" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">4 workers · DB pool 4</text>
+  <rect x="320" y="200" width="260" height="110" rx="6" fill="#18181b" stroke="#0ea5e9"/>
+  <text x="336" y="230" fill="#0ea5e9" font-family="Menlo, monospace" font-weight="700" font-size="14">BALANCED TIER (4-8GB)</text>
+  <text x="336" y="258" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">50 items · GPU-only FX</text>
+  <text x="336" y="282" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">16 workers · DB pool 10</text>
+  <rect x="608" y="200" width="260" height="110" rx="6" fill="#18181b" stroke="#10b981"/>
+  <text x="624" y="230" fill="#10b981" font-family="Menlo, monospace" font-weight="700" font-size="14">ULTRA TIER (16GB+)</text>
+  <text x="624" y="258" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">100 items · Full prefetch</text>
+  <text x="624" y="282" fill="#a1a1aa" font-family="Menlo, monospace" font-size="12">32 workers · DB pool 20</text>
+</svg>
