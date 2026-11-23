@@ -14,11 +14,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Dependencies-0-10b981?style=for-the-badge" alt="Zero Dependencies" />
-  <img src="https://img.shields.io/badge/Frontend_+_Backend-Adaptive-0ea5e9?style=for-the-badge" alt="Frontend and Backend" />
-  <img src="https://img.shields.io/badge/Used_in-Openflex-059669?style=for-the-badge" alt="Used in Openflex" />
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
-  <img src="https://img.shields.io/badge/CRTA-Crafted-6f42c1?style=for-the-badge" alt="CRTA Crafted" />
+  <a href="#-quick-start-pc--laptop--mobile"><img src="https://img.shields.io/badge/Dependencies-0-10b981?style=for-the-badge" alt="Zero Dependencies" /></a>
+  <a href="#-quick-start-pc--laptop--mobile"><img src="https://img.shields.io/badge/Frontend_+_Backend-Adaptive-0ea5e9?style=for-the-badge" alt="Frontend and Backend" /></a>
+  <a href="#-quick-start-pc--laptop--mobile"><img src="https://img.shields.io/badge/Used_in-Openflex-059669?style=for-the-badge" alt="Used in Openflex" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" /></a>
+  <a href="https://github.com/kelli-dotcom"><img src="https://img.shields.io/badge/CRTA-Crafted-6f42c1?style=for-the-badge" alt="CRTA Crafted" /></a>
 </p>
 
 <p align="center">
