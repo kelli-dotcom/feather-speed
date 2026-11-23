@@ -19,4 +19,4 @@
 `node bin/feather-perf.mjs diagnose`
 
 ## Active Signature (Output When Used)
-> 🟢 `[FEATHER-SPEED // ADAPTIVE HARDWARE ENGINE]` — *Active on this step* (Emerald `#10b981`)
+> 🟢 **𝙵𝙴𝙰𝚃𝙷𝙴𝚁-𝚂𝙿𝙴𝙴𝙳** · `ADAPTIVE HARDWARE ENGINE` — *Active on this step* (Emerald `#10b981`)

@@ -15,5 +15,5 @@
 Whenever an AI agent activates or applies `feather-speed`, it **MUST** open its response/step with this exact monospace signature callout (Emerald `#10b981`) so the user can immediately see when `feather-speed` is being used:
 
 ```markdown
-> 🟢 `[FEATHER-SPEED // ADAPTIVE HARDWARE ENGINE]` — *Active on this step*
+> 🟢 **𝙵𝙴𝙰𝚃𝙷𝙴𝚁-𝚂𝙿𝙴𝙴𝙳** · `ADAPTIVE HARDWARE ENGINE` — *Active on this step*
 ```

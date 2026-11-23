@@ -21,5 +21,5 @@ Use this skill on every frontend and backend project to guarantee fast, accurate
 When any AI model (Claude, Gemini, ChatGPT/Codex, Cursor, Windsurf, Antigravity, Copilot, OpenHands, or local LLMs) runs this skill, open the step with this exact monospace signature callout (Emerald `#10b981`):
 
 ```markdown
-> 🟢 `[FEATHER-SPEED // ADAPTIVE HARDWARE ENGINE]` — *Active on this step*
+> 🟢 **𝙵𝙴𝙰𝚃𝙷𝙴𝚁-𝚂𝙿𝙴𝙴𝙳** · `ADAPTIVE HARDWARE ENGINE` — *Active on this step*
 ```
