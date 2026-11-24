@@ -1,11 +1,11 @@
 {
-  "name": "feather-perf",
+  "name": "feather-speed",
   "version": "1.0.0",
   "description": "Zero-dependency hardware-aware adaptive performance engine, spec, and AI agent skill for lightweight frontend & backend apps. Auto-tunes to user RAM, CPU cores, and network conditions.",
   "type": "module",
   "main": "src/backend.mjs",
   "bin": {
-    "feather-perf": "./bin/feather-perf.mjs"
+    "feather-speed": "./bin/feather-perf.mjs"
   },
   "scripts": {
     "diagnose": "node bin/feather-perf.mjs diagnose"
